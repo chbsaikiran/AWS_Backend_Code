@@ -1,0 +1,14 @@
+1. The pdfs need to made into a faiss index, before we start querying about the pdfs. : This can be done on local machine
+2. inbound rules in AWS EC2 needs to be updated with access to port 5000
+3. BACKEND_URL in huggingface spaces secrets need to updated as http://your-ec2-instance:5000
+
+4. May need to do this if requirements.txt installation fails:
+
+   sudo apt install python3.10 python3.10-venv
+   python3.10 -m venv venv310
+   source venv310/bin/activate
+   pip install -r requirements.txt  # will succeed with faiss-cpu
+
+5. If still it doesn't work maybe need to do the below:
+   sudo apt-get update
+   sudo apt-get install swig
